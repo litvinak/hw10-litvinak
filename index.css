@@ -1,0 +1,129 @@
+body {
+    margin: 0;
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(255, 255, 255);
+}
+
+.newtone {
+    position: absolute;
+    display: flex;
+    font-size: 20px;
+    justify-content: space-between;
+    width: 12em;
+    border-color: rgb(151, 130, 255);
+    border-style: solid;
+    padding: 0 4em 2em 4em;
+    border-width: 0.4em 0em 0em 0em;
+}
+
+.newtone span {
+    position: relative;
+    background-color: rgb(63, 31, 138);
+    width: 0.2em;
+    height: 10em;
+    transform-origin: top;
+}
+
+.newtone span::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    background-color: rgb(92, 23, 124);
+    width: 3em;
+    height: 3em;
+    border-radius: 50%;
+    left: -1.5em;
+}
+
+.newtone span:first-child {
+    animation: moving-up 0.75s cubic-bezier(0.215, 0.61, 0.355, 1) infinite alternate;
+    --direction: 1;
+}
+
+.newtone span:last-child {
+    animation: moving-up 0.75s cubic-bezier(0.215, 0.61, 0.355, 1) infinite alternate-reverse;
+    --direction: -1;
+}
+
+@keyframes moving-up {
+  0%{
+    transform: rotate(0deg);
+  }
+    
+  50%{
+    transform: rotate(0deg);
+  }
+    
+  100%{
+    transform: rotate(calc(45deg * var(--direction)));
+  }
+}
+
+
+
+
+input[type="checkbox"] {
+    -webkit-appearance: none;
+    visibility: hidden;
+    display: none;
+}
+
+.icon {
+    margin-top: 500px;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+}
+
+.icon .two {
+    height: 6px;
+    width: 80px;
+    background-image: url(./Group\ 3.svg);
+    position: absolute;
+    transition: 0.3s ease;
+}
+
+.icon .one {
+    bottom: 14px;
+    height: 6px;
+    width: 80px;
+    background-image: url(./Group\ 2.svg);
+    position: absolute;
+    transition: 0.3s ease;
+}
+
+.icon .three {
+    top: 20px;
+    height: 6px;
+    width: 80px;
+    background-image: url(./Group\ 4.svg);
+    position: absolute;
+    transition: 0.3s ease;
+}
+  
+input[type="checkbox"]:checked ~ .icon .one {
+    transform: rotate(-45deg);
+    width: 70px;
+    transform-origin: right;
+    top: -25px;
+    filter: drop-shadow(0px 4px 4px rgba(116, 244, 201, 0.65));
+}
+
+input[type="checkbox"]:checked ~ .icon .three {
+    transform: rotate(45deg);
+    width: 70px;
+    transform-origin: right;
+    top: 25px;
+    filter: drop-shadow(0px 4px 4px rgba(244, 116, 116, 0.65));
+}
+
+input[type="checkbox"]:checked ~ .icon .two {
+    transform: translateX(20px);
+    opacity: 0;
+}
+    
+    
